@@ -28,7 +28,6 @@ export default function reducer(statePart = [], action = {}) {
       };
     // TODO - handle other action types
     case CHANGE_DURATION:
-      console.log(action);
       return {
         ...statePart,
         duration: {
