@@ -28,11 +28,13 @@ export default function reducer(statePart = [], action = {}) {
       };
     // TODO - handle other action types
     case CHANGE_DURATION:
+      console.log(action);
       return {
         ...statePart,
         duration: {
           ...statePart.duration,
-          [action.payload.type]:action.payload.value},
+          [action.payload.type]:action.payload.value,
+        },
       };
     default:
       return statePart;
