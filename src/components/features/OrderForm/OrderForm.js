@@ -9,11 +9,11 @@ import {Row, Col} from 'react-flexbox-grid';
 class OrderForm extends React.Component {
 
   render() {
-    const {tripCost} = this.props;
+    const {tripCost, options} = this.props;
     return (
       <Row>
         <Col xs={12}>
-          <OrderSummary tripCost={tripCost}/>
+          <OrderSummary tripCost={tripCost} options={options}/>
         </Col>
       </Row>
     );
@@ -22,6 +22,7 @@ class OrderForm extends React.Component {
 
 OrderForm.propTypes = {
   tripCost: PropTypes.string,
+  options: PropTypes.object,
 };
 
 export default OrderForm;
