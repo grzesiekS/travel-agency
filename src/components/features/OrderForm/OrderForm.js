@@ -1,5 +1,7 @@
 import React from 'react';
 
+import OrderSummary from '../OrderSummary/OrderSummary';
+
 import {Row, Col, Grid} from 'react-flexbox-grid';
 
 class OrderForm extends React.Component {
@@ -8,7 +10,7 @@ class OrderForm extends React.Component {
       <Grid>
         <Row>
           <Col xs={12}>
-            {/* <OrderSummary /> */}
+            <OrderSummary />
           </Col>
         </Row>
       </Grid>
