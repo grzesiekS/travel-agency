@@ -11,7 +11,7 @@ import OrderOptionNumber from './OrderOptionNumber';
 const optionTypes = {
   dropdown: OrderOptionDropdown,
   icons: OrderOptionIcons,
-  chackboxes: OrderOptionCheckboxes,
+  checkboxes: OrderOptionCheckboxes,
   number: OrderOptionNumber,
 };
 
