@@ -63,11 +63,10 @@ export default function reducer(statePart = [], action = {}) {
         regions: [...statePart.regions, ...action.payload],
       };
     case REMOVE_REGION: {
-      const pattern = new RegExp(action.payload, 'i');
-      console.log(pattern);
+      const payloadConc = action.payload.join();
       return {
         ...statePart,
-        regions: statePart.regions.filter(reg => pattern.exec(reg)),
+        regions: statePart.regions.filter(reg => !payloadConc.includes(reg)),
       };
     }
     case CHECK_REGION:
