@@ -2,10 +2,12 @@ import {connect} from 'react-redux';
 import TripListOptions from './TripListOptions';
 import {getAllTags} from '../../../redux/tagsRedux';
 import {getAllFilters, changeSearchPhrase, changeDuration, addTag, removeTag} from '../../../redux/filtersRedux';
+import { getAllRegions } from '../../../redux/regionsRedux';
 
 const mapStateToProps = state => ({
   tags: getAllTags(state),
   filters: getAllFilters(state),
+  regions: getAllRegions(state),
 });
 
 const mapDispatchToProps = dispatch => ({
