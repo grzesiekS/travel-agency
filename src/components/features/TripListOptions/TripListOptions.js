@@ -33,6 +33,7 @@ class TripListOptions extends React.Component {
       this.props.addRegion(reg);
     } else {
       console.log('Removing region', reg);
+      this.props.removeRegion(reg);
     }
   }
 
@@ -105,6 +106,7 @@ TripListOptions.propTypes = {
   removeTag: PropTypes.func,
   regions: PropTypes.object,
   addRegion: PropTypes.func,
+  removeRegion: PropTypes.func,
 };
 
 export default TripListOptions;
