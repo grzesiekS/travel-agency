@@ -26,11 +26,11 @@ export const getFilteredTrips = ({trips, filters}) => {
     output = output.filter(trip => pattern.test(trip.tags));
   }
 
-  // TODO - filter by regions
-  // if(filters.regions) {
-  //   const pattern = new RegExp(filters.regions, 'i');
-  //   console.log(trips);
-  // }
+  // DONE - filter by regions
+  if(filters.regions.length > 0) {
+    const regionConc = filters.regions.join();
+    output = output.filter(trip => regionConc.includes(trip.country.code));
+  }
 
   // DONE - sort by cost descending (most expensive goes first)
   output = output.sort((a, b) => {
