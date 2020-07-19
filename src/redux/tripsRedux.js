@@ -26,6 +26,12 @@ export const getFilteredTrips = ({trips, filters}) => {
     output = output.filter(trip => pattern.test(trip.tags));
   }
 
+  // TODO - filter by regions
+  // if(filters.regions) {
+  //   const pattern = new RegExp(filters.regions, 'i');
+  //   console.log(trips);
+  // }
+
   // DONE - sort by cost descending (most expensive goes first)
   output = output.sort((a, b) => {
     const aCost = parseFloat(a.cost.replace('$','').replace(',',''));

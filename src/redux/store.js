@@ -20,6 +20,7 @@ const initialState = {
       to: 14,
     },
     regions: [],
+    checkedRegions: [],
   },
   order: {
     trip: null,

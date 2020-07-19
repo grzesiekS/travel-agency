@@ -27,13 +27,15 @@ class TripListOptions extends React.Component {
     this.props.changeSearchPhrase(phrase);
   }
 
-  handleRegions(reg, checked){
+  handleRegions(reg, checked, checkedRegion){
     if(checked) {
       console.log('Adding region', reg);
       this.props.addRegion(reg);
+      this.props.checkRegion(checkedRegion);
     } else {
       console.log('Removing region', reg);
       this.props.removeRegion(reg);
+      this.props.uncheckRegion(checkedRegion);
     }
   }
 
@@ -83,7 +85,7 @@ class TripListOptions extends React.Component {
                 <div className={styles.dropdown}>
                   {Object.keys(regions).map(reg => (
                     <label key={reg} className={styles.option}>
-                      <input type='checkbox' checked={filters.regions.indexOf(reg) > -1} onChange={event => this.handleRegions(reg, event.currentTarget.checked)}/>
+                      <input type='checkbox' checked={filters.checkedRegions.indexOf(reg) > -1} onChange={event => this.handleRegions(regions[reg].countries, event.currentTarget.checked, reg)}/>
                       {reg}
                     </label>
                   ))}
@@ -107,6 +109,8 @@ TripListOptions.propTypes = {
   regions: PropTypes.object,
   addRegion: PropTypes.func,
   removeRegion: PropTypes.func,
+  checkRegion: PropTypes.func,
+  uncheckRegion: PropTypes.func,
 };
 
 export default TripListOptions;
