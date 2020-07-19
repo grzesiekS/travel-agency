@@ -30,6 +30,7 @@ class TripListOptions extends React.Component {
   handleRegions(reg, checked){
     if(checked) {
       console.log('Adding region', reg);
+      this.props.addRegion(reg);
     } else {
       console.log('Removing region', reg);
     }
@@ -37,7 +38,6 @@ class TripListOptions extends React.Component {
 
   render(){
     const {tags, filters, regions} = this.props;
-    console.log(this);
     return (
       <div className={styles.component}>
         <Row around="lg">
@@ -104,6 +104,7 @@ TripListOptions.propTypes = {
   addTag: PropTypes.func,
   removeTag: PropTypes.func,
   regions: PropTypes.object,
+  addRegion: PropTypes.func,
 };
 
 export default TripListOptions;
