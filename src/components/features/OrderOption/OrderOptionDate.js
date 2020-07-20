@@ -13,7 +13,7 @@ class OrderOptionDate extends React.Component {
   };
 
   state = {
-    startDate: this.tomorrowDate(),
+    startDate: '',
   };
 
   handleChange = date => {
