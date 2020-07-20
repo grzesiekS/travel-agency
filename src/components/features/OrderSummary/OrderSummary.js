@@ -19,27 +19,25 @@ const OrderSummary = props => {
 };
 
 const generateDuration = (date, duration) => {
-  if(date != '') {
-    return (
-      <Grid>
-        <Row>
-          <Col md={2}>
-            <h2>From:</h2>
-            <h2>{formatDate(date)}</h2>
-          </Col>
-          <Col md={2}>
-            <h2>To:</h2>
-            <h2>{formatDate(date.setDate(date.getDate() + duration - 1))}</h2>
-            {returnToSelectedDate(date, duration)}
-          </Col>
-        </Row>
-      </Grid>
-    );
-  }
-};
-
-const returnToSelectedDate = (date, duration) => {
-  date.setDate(date.getDate() - duration + 1);
+  const dateCopy = new Date(Number(date));
+  console.log(dateCopy);
+  return (
+    <Grid>
+      <Row>
+        <Col md={2}>
+          <h2>From:</h2>
+          {date != '' ? (<h2>{formatDate(date)}</h2>) : (<h2>-----</h2>)}
+        </Col>
+        <Col md={2}>
+          <h2>To:</h2>
+          {date != '' ?
+            (<h2>{formatDate(dateCopy.setDate(dateCopy.getDate() + duration - 1))}</h2>)
+            :
+            (<h2>-----</h2>)}
+        </Col>
+      </Row>
+    </Grid>
+  );
 };
 
 OrderSummary.propTypes = {
