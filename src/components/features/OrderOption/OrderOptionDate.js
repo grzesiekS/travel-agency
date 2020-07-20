@@ -23,11 +23,15 @@ class OrderOptionDate extends React.Component {
     this.props.setOptionValue(date);
   };
 
+  selectStartDate = date => {
+    this.props.setOptionValue(date);
+    return date;
+  };
+
   render() {
 
     return (
       <DatePicker
-        selected={this.state.startDate}
         onChange={this.handleChange}
         minDate={this.tomorrowDate()}
         className={styles.input}
