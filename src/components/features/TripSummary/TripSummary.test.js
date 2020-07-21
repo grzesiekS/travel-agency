@@ -29,4 +29,13 @@ describe('Component TripSummary', () => {
     expect(component.find('.title').text()).toEqual(expectName);
     expect(component.find('.details').text()).toEqual(`${expectDays} daysfrom ${expectCost}`);
   });
+
+  it('should render correct tags', () => {
+    const expectedTags = ['tag1','tag2','tag3'];
+    const component = shallow(<TripSummary tags={expectedTags}/>);
+
+    expect(component.find('.tags span').at(0).text()).toEqual(expectedTags[0]);
+    expect(component.find('.tags span').at(1).text()).toEqual(expectedTags[1]);
+    expect(component.find('.tags span').at(2).text()).toEqual(expectedTags[2]);
+  });
 });
