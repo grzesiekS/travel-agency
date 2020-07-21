@@ -30,6 +30,10 @@ describe('Component TripSummary', () => {
     expect(component.find('.details').text()).toEqual(`${expectDays} daysfrom ${expectCost}`);
   });
 
+  it('should throw error without required props', () => {
+    expect(() => shallow(<TripSummary />)).toThrow();
+  });
+
   it('should render correct tags', () => {
     const expectedTags = ['tag1','tag2','tag3'];
     const component = shallow(<TripSummary tags={expectedTags}/>);
