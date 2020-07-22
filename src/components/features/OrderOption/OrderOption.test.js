@@ -120,10 +120,25 @@ for(let type in optionTypes) {
           expect(emptyIcons.length).toBe(1);
         });
 
-        it('should run setOrderOption function on clikc', () => {
+        it('should run setOrderOption function on click', () => {
           renderedSubcomponent.find('.icon').simulate('click');
           expect(mockSetOrderOption).toBeCalledTimes(1);
         });
+        break;
+      }
+      case 'checkboxes': {
+        it('contain input type="checkbox"', () => {
+          const input = renderedSubcomponent.find('input[type="checkbox"]');
+          expect(input.length).toBe(mockProps.values.length);
+        });
+
+        it('should run setOrderOption function on change', () => {
+          renderedSubcomponent.find(`input[value="${testValue}"]`).simulate('change', {currentTarget: {checked: true}});
+          expect(mockSetOrderOption).toBeCalledTimes(1);
+          console.log(mockPropsForType.checkboxes.currentValue);
+          expect(mockSetOrderOption).toBeCalledWith({ [mockProps.id] : [mockProps.currentValue, testValue]});
+        });
+        //
         break;
       }
     }
