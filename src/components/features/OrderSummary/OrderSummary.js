@@ -25,15 +25,20 @@ const generateDuration = (date, duration) => {
     <Grid>
       <Row>
         <Col md={2}>
-          <h2>From:</h2>
-          {date != '' ? (<h2>{formatDate(date)}</h2>) : (<h2>-----</h2>)}
+          <div className={styles.wrapper}>
+            <h2>From:</h2>
+            {date != '' ? (<h2>{formatDate(date)}</h2>) : (<h2>-----</h2>)}
+          </div>
         </Col>
         <Col md={2}>
-          <h2>To:</h2>
-          {date != '' ?
-            (<h2>{formatDate(dateCopy.setDate(dateCopy.getDate() + duration - 1))}</h2>)
-            :
-            (<h2>-----</h2>)}
+          <div className={styles.wrapper}>
+            <h2>To:</h2>
+            {date != '' ?
+              (<h2>{formatDate(dateCopy.setDate(dateCopy.getDate() + duration - 1))}</h2>)
+              :
+              (<h2>-----</h2>)
+            }
+          </div>
         </Col>
       </Row>
     </Grid>
