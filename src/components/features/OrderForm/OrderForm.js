@@ -11,6 +11,8 @@ import settings from '../../../data/settings';
 
 import {Row, Col} from 'react-flexbox-grid';
 
+import { withAlert } from 'react-alert';
+
 const sendOrder = (options, tripCost, tripDetails) => {
   const totalCost = formatPrice(calculateTotal(tripCost, options));
 
@@ -19,7 +21,7 @@ const sendOrder = (options, tripCost, tripDetails) => {
     totalCost,
     ...tripDetails,
   };
-  if(options.contact != '' && options.name != '' && options['start-date'] != '') {
+  if(options.contact  && options.name  && options['start-date']) {
     const url = settings.db.url + '/' + settings.db.endpoint.orders;
 
     const fetchOptions = {
@@ -37,6 +39,7 @@ const sendOrder = (options, tripCost, tripDetails) => {
       }).then(function(parsedResponse){
         console.log('parsedResponse', parsedResponse);
       });
+
     return true;
   } else {
     return false;
@@ -47,6 +50,7 @@ class OrderForm extends React.Component {
 
   render() {
     const {tripCost, options, setOrderOption, tripDuration, tripDetails} = this.props;
+    const alertReact = this.props.alert;
     return (
       <Row>
         {pricing.map(opt => (
@@ -57,7 +61,7 @@ class OrderForm extends React.Component {
         <Col xs={12}>
           <OrderSummary tripCost={tripCost} options={options} tripDuration={tripDuration}/>
         </Col>
-        <Button onClick={() => sendOrder(options, tripCost, tripDetails) ? null : alert('test')}>Order now!</Button>
+        <Button onClick={() => sendOrder(options, tripCost, tripDetails) ? alertReact.success('SUCCESS!') : alertReact.error('Name, Contact and Date are required!')}>Order now!</Button>
       </Row>
     );
   }
@@ -69,6 +73,7 @@ OrderForm.propTypes = {
   setOrderOption: PropTypes.func,
   tripDuration: PropTypes.number,
   tripDetails: PropTypes.object,
+  alert: PropTypes.object,
 };
 
-export default OrderForm;
+export default withAlert()(OrderForm);
