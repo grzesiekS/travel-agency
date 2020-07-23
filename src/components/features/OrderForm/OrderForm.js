@@ -11,12 +11,13 @@ import settings from '../../../data/settings';
 
 import {Row, Col} from 'react-flexbox-grid';
 
-const sendOrder = (options, tripCost) => {
+const sendOrder = (options, tripCost, tripDetails) => {
   const totalCost = formatPrice(calculateTotal(tripCost, options));
 
   const payload = {
     ...options,
     totalCost,
+    ...tripDetails,
   };
 
   const url = settings.db.url + '/' + settings.db.endpoint.orders;
@@ -41,7 +42,7 @@ const sendOrder = (options, tripCost) => {
 class OrderForm extends React.Component {
 
   render() {
-    const {tripCost, options, setOrderOption, tripDuration} = this.props;
+    const {tripCost, options, setOrderOption, tripDuration, tripDetails} = this.props;
     return (
       <Row>
         {pricing.map(opt => (
@@ -52,7 +53,7 @@ class OrderForm extends React.Component {
         <Col xs={12}>
           <OrderSummary tripCost={tripCost} options={options} tripDuration={tripDuration}/>
         </Col>
-        <Button onClick={() => sendOrder(options, tripCost)}>Order now!</Button>
+        <Button onClick={() => sendOrder(options, tripCost, tripDetails)}>Order now!</Button>
       </Row>
     );
   }
@@ -63,6 +64,7 @@ OrderForm.propTypes = {
   options: PropTypes.object,
   setOrderOption: PropTypes.func,
   tripDuration: PropTypes.number,
+  tripDetails: PropTypes.object,
 };
 
 export default OrderForm;
