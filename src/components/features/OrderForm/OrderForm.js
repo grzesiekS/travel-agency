@@ -37,8 +37,9 @@ const sendOrder = (options, tripCost, tripDetails) => {
       }).then(function(parsedResponse){
         console.log('parsedResponse', parsedResponse);
       });
+    return true;
   } else {
-    alert('Fields: Name, Contact and Date are required');
+    return false;
   }
 };
 
@@ -56,7 +57,7 @@ class OrderForm extends React.Component {
         <Col xs={12}>
           <OrderSummary tripCost={tripCost} options={options} tripDuration={tripDuration}/>
         </Col>
-        <Button onClick={() => sendOrder(options, tripCost, tripDetails)}>Order now!</Button>
+        <Button onClick={() => sendOrder(options, tripCost, tripDetails) ? null : alert('test')}>Order now!</Button>
       </Row>
     );
   }
