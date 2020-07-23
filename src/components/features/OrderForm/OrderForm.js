@@ -19,24 +19,27 @@ const sendOrder = (options, tripCost, tripDetails) => {
     totalCost,
     ...tripDetails,
   };
+  if(options.contact != '' && options.name != '' && options['start-date'] != '') {
+    const url = settings.db.url + '/' + settings.db.endpoint.orders;
 
-  const url = settings.db.url + '/' + settings.db.endpoint.orders;
+    const fetchOptions = {
+      cache: 'no-cache',
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload),
+    };
 
-  const fetchOptions = {
-    cache: 'no-cache',
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(payload),
-  };
-
-  fetch(url, fetchOptions)
-    .then(function(response){
-      return response.json();
-    }).then(function(parsedResponse){
-      console.log('parsedResponse', parsedResponse);
-    });
+    fetch(url, fetchOptions)
+      .then(function(response){
+        return response.json();
+      }).then(function(parsedResponse){
+        console.log('parsedResponse', parsedResponse);
+      });
+  } else {
+    alert('Fields Name, Contact and Date are required');
+  }
 };
 
 class OrderForm extends React.Component {
