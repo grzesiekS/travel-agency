@@ -98,6 +98,36 @@
       "tripId": "5cc1d1014c75f672e46ef6d7",
       "countryCode": "TLS",
       "id": 6
+    },
+    {
+      "car-rental": "",
+      "accommodation": "hotel",
+      "features": [],
+      "adults": 1,
+      "children": 0,
+      "name": "test",
+      "contact": "test",
+      "start-date": "2020-07-29T22:00:00.000Z",
+      "totalCost": "$139,399",
+      "tripName": "Marvelous travel in fantastic Timor-Leste",
+      "tripId": "5cc1d1014c75f672e46ef6d7",
+      "countryCode": "TLS",
+      "id": 7
+    },
+    {
+      "car-rental": "",
+      "accommodation": "hotel",
+      "features": [],
+      "adults": 1,
+      "children": 0,
+      "name": "test2",
+      "contact": "test2",
+      "start-date": "2020-07-29T22:00:00.000Z",
+      "totalCost": "$139,399",
+      "tripName": "Marvelous travel in fantastic Timor-Leste",
+      "tripId": "5cc1d1014c75f672e46ef6d7",
+      "countryCode": "TLS",
+      "id": 8
     }
   ]
 }
