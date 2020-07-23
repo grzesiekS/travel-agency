@@ -38,7 +38,7 @@ const sendOrder = (options, tripCost, tripDetails) => {
         console.log('parsedResponse', parsedResponse);
       });
   } else {
-    alert('Fields Name, Contact and Date are required');
+    alert('Fields: Name, Contact and Date are required');
   }
 };
 
