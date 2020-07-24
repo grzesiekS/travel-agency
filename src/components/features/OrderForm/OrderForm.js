@@ -52,6 +52,12 @@ const sendOrder = (options, tripCost, tripDetails) => {
   }
 };
 
+const changeOptions = (setOrderOption, alertReact, {...otherOptions}) => {
+  console.log(otherOptions);
+  setOrderOption(otherOptions);
+  alertReact.success('success!');
+};
+
 class OrderForm extends React.Component {
 
   render() {
@@ -67,7 +73,7 @@ class OrderForm extends React.Component {
         <Col xs={12}>
           <OrderSummary tripCost={tripCost} options={options} tripDuration={tripDuration}/>
         </Col>
-        <Button onClick={() => sendOrder(options, tripCost, tripDetails) ? setOrderOption(defaultOptions) : alertReact.error('Name, Contact and Date are required!')}>Order now!</Button>
+        <Button onClick={() => sendOrder(options, tripCost, tripDetails) ? changeOptions(setOrderOption, alertReact, defaultOptions) : alertReact.error('Name, Contact and Date are required!')}>Order now!</Button>
       </Row>
     );
   }
