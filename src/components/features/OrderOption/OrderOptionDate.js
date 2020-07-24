@@ -26,7 +26,8 @@ class OrderOptionDate extends React.Component {
   render() {
     return (
       <DatePicker
-        selected={this.state.startDate}
+        // eslint-disable-next-line react/prop-types
+        selected={this.props.currentValue}
         onChange={this.handleChange}
         minDate={this.tomorrowDate()}
         className={styles.input}
