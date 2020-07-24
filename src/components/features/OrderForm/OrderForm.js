@@ -13,6 +13,12 @@ import {Row, Col} from 'react-flexbox-grid';
 
 import { withAlert } from 'react-alert';
 
+const defaultOptions = {
+  name: '',
+  contact: '',
+  ['start-date']: '',
+};
+
 const sendOrder = (options, tripCost, tripDetails) => {
   const totalCost = formatPrice(calculateTotal(tripCost, options));
 
@@ -61,7 +67,7 @@ class OrderForm extends React.Component {
         <Col xs={12}>
           <OrderSummary tripCost={tripCost} options={options} tripDuration={tripDuration}/>
         </Col>
-        <Button onClick={() => sendOrder(options, tripCost, tripDetails) ? alertReact.success('SUCCESS!') : alertReact.error('Name, Contact and Date are required!')}>Order now!</Button>
+        <Button onClick={() => sendOrder(options, tripCost, tripDetails) ? setOrderOption(defaultOptions) : alertReact.error('Name, Contact and Date are required!')}>Order now!</Button>
       </Row>
     );
   }
