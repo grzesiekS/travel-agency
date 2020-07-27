@@ -3,9 +3,9 @@ export const formatTime = time => {
     return null;
   }
 
-  const hour = parseInt(time / 3600);
-  const minutes = parseInt((time - (hour * 3600))/60);
-  const seconds = parseInt(time - (hour * 3600) - (minutes * 60));
+  const seconds = Math.floor(time%60);
+  const minutes = Math.floor((time/60)%60);
+  const hour = Math.floor(time / 3600);
 
   return zeroAddTime(hour, minutes, seconds).join(':');
 };
