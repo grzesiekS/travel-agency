@@ -9,6 +9,7 @@ const select = {
 
 const mockProps = {
   title: 'title_test',
+  promoDescription: 'description_test',
 };
 
 describe('Component HappyHourAd', () => {
@@ -26,5 +27,6 @@ describe('Component HappyHourAd', () => {
   it('should render correct title name', () => {
     const component = shallow(<HappyHourAd {...mockProps} />);
     expect(component.find(select.title).text()).toEqual(mockProps.title);
+    expect(component.find(select.promoDescription).text()).toEqual(mockProps.promoDescription);
   });
 });
