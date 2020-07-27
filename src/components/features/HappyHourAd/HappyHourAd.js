@@ -24,12 +24,13 @@ class HappyHourAd extends React.Component {
   }
 
   render() {
-    const {title} = this.props;
+    const {title, promoDescription} = this.props;
+    const renderCountdownTime = this.getCountdownTime() > 23 * 60 * 60 ? promoDescription : this.getCountdownTime();
 
     return (
       <div>
         <h3 className={styles.title}>{title}</h3>
-        <div className={styles.promoDescription}>{this.getCountdownTime()}</div>
+        <div className={styles.promoDescription}>{renderCountdownTime}</div>
       </div>
     );
   }
