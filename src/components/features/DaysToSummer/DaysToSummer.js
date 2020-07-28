@@ -12,13 +12,19 @@ class DaysToSummer extends React.Component {
     }
     const diffDays = Math.round((nextVacation.getTime() - currentDate.getTime())/(1000 * 3600 * 24));
 
+    return diffDays;
+  }
+
+  createDesc(diffDays) {
     return diffDays === 1 ? `${diffDays} day to summer` : `${diffDays} days to summer`;
   }
 
   render() {
     return (
-      <div>
-        <h3 className={styles.vacationCountDesc}>{this.getCountdownDays()}</h3>
+      <div className={styles.component}>
+        <h3 className={styles.vacationCountDesc}>
+          {this.getCountdownDays() < 271 ? this.createDesc(this.getCountdownDays()) : null}
+        </h3>
       </div>
     );
   }

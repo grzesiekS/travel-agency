@@ -54,4 +54,10 @@ describe('Component DaysToSummer with mocked Date', () => {
   checkDescriptionAtDate('2020-09-24','270 days to summer');
 });
 
+describe('Component DaysToSummer with mocked Date', () => {
+  checkDescriptionAtDate('2020-06-21', '');
+  checkDescriptionAtDate('2020-07-21', '');
+  checkDescriptionAtDate('2020-09-23', '');
+});
+
 
